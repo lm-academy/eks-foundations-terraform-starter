@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  # type LoadBalancer asks EKS to provision a load balancer through the
+  # built-in cloud provider, with no extra controller installed.
+  type: LoadBalancer
+  selector:
+    app: nginx
+  ports:
+    - port: 80
+      targetPort: 80
